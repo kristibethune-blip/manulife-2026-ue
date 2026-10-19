@@ -1,37 +1,129 @@
+main > .section.hero-container { padding: 0; }
+main > .section.hero-container > div { max-width: unset; margin: 0; padding: 0; }
+
+/* break out of the 1200px section container */
+.hero-container,
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .hero {
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: 420px;
+  background: var(--navy, #282b3e);
+  color: #fff;
 }
 
-.hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
-}
-
-.hero picture {
+.hero .hero-bg {
   position: absolute;
-  z-index: -1;
   inset: 0;
-  object-fit: cover;
-  box-sizing: border-box;
+  z-index: -2;
 }
 
-.hero img {
-  object-fit: cover;
+.hero .hero-bg picture,
+.hero .hero-bg img {
+  display: block;
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  object-position: right center;
+}
+
+/* dark gradient on the left so the white text stays readable */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, rgb(45 45 50 / 88%) 0%, rgb(45 45 50 / 55%) 45%, rgb(45 45 50 / 0%) 75%);
+}
+.hero { background: #2d2d32; min-height: 400px; }
+.hero h1 { font-size: 44px; line-height: 1.15; max-width: 14em; }
+  
+}
+
+.hero .hero-content {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px 88px; /* extra bottom space for the overlapping news strip */
+}
+
+.hero .hero-content > * { max-width: 640px; }
+
+.hero h1 {
+  margin: 0 0 16px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.hero p {
+  margin: 0 0 20px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.hero .button-container { margin: 0; }
+
+@media (max-width: 899px) {
+  .hero { min-height: 360px; }
+  .hero h1 { font-size: 30px; }
+  .hero::after {
+    background: linear-gradient(180deg, rgb(40 43 62 / 40%) 0%, rgb(40 43 62 / 85%) 100%);
+  }
+}
+
+/* let the news strip tuck under the hero's bottom edge */
+main > .section:has(.cards.overlap) { margin-top: 0; }
+
+.hero {
+  background: var(--navy, #282b3e); /* fallback only, hidden once the image loads */
+  position: relative;
+  isolation: isolate;
+}
+
+.hero .hero-bg img {
+  opacity: 1;
+  filter: none;
+  mix-blend-mode: normal;
+}
+
+.hero::before { content: none; }
+
+/* neutral navy gradient on the left only, not a full-image tint */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    rgb(40 43 62 / 80%) 0%,
+    rgb(40 43 62 / 35%) 50%,
+    rgb(40 43 62 / 0%) 100%
+  );
+}
+
+/* align hero text with the 1200px content column used by the cards */
+main .hero .hero-content {
+  box-sizing: border-box;
+  width: calc(100% - 2rem);      /* matches section side padding on mobile */
+  max-width: var(--content-width, 1200px);
+  margin: 0 auto;
+  padding: 48px 0 88px;          /* no side padding, so text starts exactly at the card edge */
 }
 
 @media (width >= 900px) {
-  .hero {
-    padding: 40px 32px;
+  main .hero .hero-content {
+    width: calc(100% - 4rem);    /* matches section side padding on desktop */
   }
 }
