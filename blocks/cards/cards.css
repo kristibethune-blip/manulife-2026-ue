@@ -155,7 +155,7 @@ main > .section:has(.cards.overlap) {
 /* Cards (insights): carousel with pill */
 .cards.insights { position: relative; }
 .cards.insights > ul {
-  display: flex;https://github.com/kristibethune-blip/manulife-2026-ue/blob/main/blocks/cards/cards.css
+  display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
