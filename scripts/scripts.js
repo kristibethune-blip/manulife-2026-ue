@@ -1,4 +1,4 @@
-import {
+import decorateDashboard from './dashboard.js'; {
   loadHeader,
   loadFooter,
   decorateIcons,
@@ -120,6 +120,7 @@ export function decorateMain(main) {
   decorateSections(main);
   decorateBlocks(main);
   decorateButtons(main);
+  decorateDashboard(main);
 }
 
 /**
@@ -134,6 +135,8 @@ async function loadEager(doc) {
     decorateMain(main);
     document.body.classList.add('appear');
     await loadSection(main.querySelector('.section'), waitForFirstImage);
+  if (main.querySelector('.section.dashboard')) {
+    loadCSS(`${window.hlx.codeBasePath}/styles/dashboard.css`);
   }
 
   try {
