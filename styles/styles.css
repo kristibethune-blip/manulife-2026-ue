@@ -452,3 +452,75 @@ main .section.overlap .cards > ul > li {
   main .section.overlap { margin-top: -40px; }
   main .section.overlap .cards > ul { grid-template-columns: 1fr; }
 }
+/* ---- Overlap cards: compact, icon + text + arrow ---- */
+main .section.overlap .cards > ul > li {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 28px 36px;
+  min-height: 0;
+  position: relative;
+}
+
+/* Hide the empty image slot that creates the tall top gap */
+main .section.overlap .cards .cards-card-image:empty,
+main .section.overlap .cards .cards-card-image:not(:has(img)) {
+  display: none;
+}
+
+main .section.overlap .cards .cards-card-body {
+  margin: 0;
+  flex: 1;
+  padding-right: 32px; /* room for the arrow */
+}
+
+main .section.overlap .cards .cards-card-body p {
+  margin: 0;
+}
+
+/* Title */
+main .section.overlap .cards .cards-card-body p:first-child,
+main .section.overlap .cards .cards-card-body strong {
+  font-size: 28px;
+  line-height: 1.25;
+  font-weight: 500;
+  color: #282b3e;
+}
+
+/* Date / subtitle */
+main .section.overlap .cards .cards-card-body p + p {
+  margin-top: 6px;
+  font-size: 18px;
+  color: #34384b;
+}
+
+/* Left icon */
+main .section.overlap .cards > ul > li::before {
+  content: "";
+  flex: 0 0 36px;
+  height: 40px;
+  background: no-repeat center / contain;
+}
+
+/* Card 1: document icon */
+main .section.overlap .cards > ul > li:nth-child(1)::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 28' fill='none' stroke='%23282b3e' stroke-width='2'%3E%3Cpath d='M2 1h13l7 7v19H2z'/%3E%3C/svg%3E");
+}
+
+/* Card 2: tree icon */
+main .section.overlap .cards > ul > li:nth-child(2)::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28' fill='none' stroke='%23282b3e' stroke-width='2'%3E%3Cpath d='M14 27V12M14 19l-5-4M14 16l5-4'/%3E%3Cpath d='M8 21a7 7 0 1 1 12 0'/%3E%3C/svg%3E");
+}
+
+/* Right arrow */
+main .section.overlap .cards > ul > li::after {
+  content: "";
+  position: absolute;
+  right: 36px;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-top: 3px solid #282b3e;
+  border-right: 3px solid #282b3e;
+  transform: translateY(-50%) rotate(45deg);
+}
