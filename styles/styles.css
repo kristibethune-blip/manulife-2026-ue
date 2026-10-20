@@ -418,3 +418,37 @@ main > .section.dark .columns img {
     aspect-ratio: 4 / 3;
   }
 }
+/* Leave room under the hero for the cards */
+main .hero-container .hero-wrapper,
+main .hero-container .hero {
+  padding-bottom: 100px;
+}
+
+/* Pull the cards section up over the hero */
+main .section.overlap {
+  position: relative;
+  z-index: 2;
+  margin-top: -80px;   /* how far the cards cover the hero */
+  padding-top: 0;
+}
+
+main .section.overlap .cards > ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+main .section.overlap .cards > ul > li {
+  background: #fff;
+  border: 0;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 12%);
+  padding: 24px 32px;
+}
+
+/* Mobile: stack the cards and reduce the overlap */
+@media (width < 900px) {
+  main .section.overlap { margin-top: -40px; }
+  main .section.overlap .cards > ul { grid-template-columns: 1fr; }
+}
