@@ -851,3 +851,109 @@ body.auth header .nav-utility-right a.button {
   display: flex; align-items: center; height: 47px; padding: 0 16px; margin: 0;
   background: #f6a623; color: #fff; border-radius: 0; font-weight: 400;
 }
+/* ---- Group retirement plans: polish v2 ---- */
+
+/* 2. Full-width section, aligned 52px from the rail */
+body.auth main .section:has(.cards),
+body.auth main .section:has(.cards) > div,
+body.auth main .section:has(.cards) .cards-wrapper {
+  max-width: none;
+  margin: 0;
+}
+body.auth main .section:has(.cards) { padding: 110px 52px 80px; }
+
+/* 4. Heading: light weight like the reference */
+body.auth main .section:has(.cards) h1 {
+  font-size: 60px;
+  font-weight: 300;
+  letter-spacing: -0.5px;
+  margin: 0 0 56px;
+}
+
+/* Cards: size and type */
+body.auth main .cards > ul { grid-template-columns: 345px; gap: 32px; }
+body.auth main .cards > ul > li { min-height: 350px; padding: 56px 32px; justify-content: flex-start; }
+body.auth main .cards > ul > li p { font-size: 22px; font-weight: 300; margin: 0 0 18px; }
+body.auth main .cards > ul > li p strong { font-weight: 500; }
+body.auth main .cards > ul > li:last-child { justify-content: center; }
+body.auth main .cards > ul > li:last-child p:first-child { padding: 0 8px; line-height: 1.4; }
+
+/* 1. Go = orange button (first card, last line) */
+body.auth main .cards > ul > li:first-child p:last-child { margin-top: 36px; }
+body.auth main .cards > ul > li:first-child p:last-child a {
+  display: inline-block;
+  min-width: 166px;
+  margin: 0;
+  padding: 14px 0;
+  background: #ec6453;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 0;
+  border-radius: 0;
+}
+body.auth main .cards > ul > li:first-child p:last-child a::before { content: none; display: none; }
+
+/* Connect: lower in the card */
+body.auth main .cards > ul > li:last-child p:last-child { margin-top: 110px; }
+
+/* Switch Products */
+body.auth main .section:has(.cards) > .default-content-wrapper:last-child a { margin: 48px 0 0 36px; }
+
+/* 3. Straight bars in the green tile + "Manulife" wordmark beside it */
+body.auth header .nav-brand::before {
+  width: 46px;
+  height: 46px;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='3' y='3' width='3' height='18'/%3E%3Crect x='10.5' y='3' width='3' height='18'/%3E%3Crect x='18' y='3' width='3' height='18'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+body.auth header .nav-brand::after {
+  content: "Manulife";
+  position: absolute;
+  left: calc(100% + 38px);
+  top: 50%;
+  transform: translateY(-50%);
+  color: #000;
+  font-size: 34px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* 4. Header: icons, dividers and the Logout text colour */
+body.auth header .nav-utility-left,
+body.auth header .nav-utility-right { display: flex; }
+body.auth header .nav-utility li { font-size: 18px; }
+body.auth header .nav-utility-left li { border-left: 1px solid #5e6073; }
+body.auth header .nav-utility-left li a::before,
+body.auth header .nav-utility-right strong a::before {
+  content: "";
+  display: inline-block !important;
+  width: 22px;
+  height: 22px;
+  margin-right: 12px;
+  background: currentcolor;
+}
+body.auth header .nav-utility-left li a::before {      /* phone */
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6'%3E%3Cpath d='M5 3h4l2 5-3 2a12 12 0 0 0 6 6l2-3 5 2v4a2 2 0 0 1-2 2A18 18 0 0 1 3 5a2 2 0 0 1 2-2z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+body.auth header .nav-utility-right strong a::before { /* person */
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6'%3E%3Ccircle cx='12' cy='8' r='4.5'/%3E%3Cpath d='M3.5 22a8.5 8.5 0 0 1 17 0'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+body.auth header .nav-utility-right strong a,
+body.auth header .nav-utility-right a.button { color: #34384b; padding: 0 18px; }
+
+/* 4. Footer: aligned with the content, larger text, green bars before Manulife */
+body.auth footer .footer > div { padding: 32px 52px; }
+body.auth footer ul a { font-size: 20px; font-weight: 300; }
+body.auth footer p { font-size: 20px; font-weight: 300; display: flex; align-items: center; }
+body.auth footer p strong { font-size: 28px; font-weight: 600; margin-right: 18px; }
+body.auth footer p strong::before {
+  content: "";
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  margin-right: 20px;
+  vertical-align: -3px;
+  background: #00a758;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpolygon points='2,22 4.5,3 7,3 4.5,22'/%3E%3Cpolygon points='9,22 11.5,3 14,3 11.5,22'/%3E%3Cpolygon points='16,22 18.5,3 21,3 18.5,22'/%3E%3C/svg%3E") center / contain no-repeat;
+}
