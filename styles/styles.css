@@ -462,9 +462,9 @@ main .section.overlap .cards > ul > li {
   position: relative;
 }
 
-/* Hide the empty image slot that creates the tall top gap */
-main .section.overlap .cards .cards-card-image:empty,
-main .section.overlap .cards .cards-card-image:not(:has(img)) {
+/* Hide the empty first cell that creates the tall top gap */
+main .section.overlap .cards .cards-card-body:empty,
+main .section.overlap .cards .cards-card-body:not(:has(*)) {
   display: none;
 }
 
