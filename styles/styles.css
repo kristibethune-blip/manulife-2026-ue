@@ -634,3 +634,48 @@ main .columns:has(h1 em) strong a {
   color: #fff;
   text-decoration: none;
 }
+/* ---- Sign-in page: full-bleed image ---- */
+
+/* Remove the section's centred width and padding */
+main .section:has(.columns h1 em),
+main .section:has(.columns h1 em) > div,
+main .section:has(.columns h1 em) .columns-wrapper {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Two columns filling the window height under the header */
+main .columns:has(h1 em) > div {
+  display: grid;
+  grid-template-columns: 43% 1fr;
+  min-height: calc(100vh - var(--nav-height, 180px));
+}
+
+/* Image column fills its whole cell */
+main .columns:has(h1 em) > div > div:first-child,
+main .columns:has(h1 em) > div > div:first-child p,
+main .columns:has(h1 em) > div > div:first-child picture {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+main .columns:has(h1 em) > div > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Form column spacing, matching the reference */
+main .columns:has(h1 em) > div > div:last-child {
+  padding: 80px 72px;
+  align-self: center;
+}
+
+@media (width < 900px) {
+  main .columns:has(h1 em) > div { grid-template-columns: 1fr; min-height: 0; }
+  main .columns:has(h1 em) > div > div:first-child img { height: 280px; }
+}
