@@ -799,3 +799,55 @@ body.auth main .columns:has(h1 em) p strong > a {
 
 /* Footer: full width, aligned to the rail */
 body.auth footer .footer > div { max-width: none; margin: 0; padding: 32px 46px; }
+
+/* ---- Group retirement plans page ---- */
+body.auth main { background: #fafafa; }
+body.auth main .section:has(.cards) { max-width: none; margin: 0; padding: 40px 52px 80px; }
+
+body.auth main .section:has(.cards) h1 {
+  font-size: 64px; font-weight: 300; color: #282b3e; margin: 0 0 56px;
+}
+
+/* Cards: stacked, white, centred text */
+body.auth main .cards > ul { display: grid; grid-template-columns: 345px; gap: 32px; }
+body.auth main .cards > ul > li {
+  display: flex; flex-direction: column; justify-content: center;
+  min-height: 350px; padding: 48px 32px;
+  background: #fff; border: 1px solid #ededed; box-shadow: none;
+  text-align: center;
+}
+body.auth main .cards > ul > li::before,
+body.auth main .cards > ul > li::after { content: none; }      /* no icon or arrow on these cards */
+body.auth main .cards .cards-card-body:not(:has(p)) { display: none; }
+body.auth main .cards p { margin: 0 0 18px; font-size: 22px; color: #282b3e; }
+body.auth main .cards p strong { font-weight: 500; }
+
+/* Go button */
+body.auth main .cards p strong > a {
+  display: inline-block; min-width: 166px; margin-top: 30px; padding: 14px;
+  background: #ec6453; color: #fff; font-size: 24px; font-weight: 600; text-decoration: none;
+}
+
+/* Connect and Switch Products: circle-arrow links */
+body.auth main .cards p > a:not(strong a),
+body.auth main .section:has(.cards) > .default-content-wrapper:last-child a {
+  display: inline-flex; align-items: center; gap: 12px; margin-top: 80px;
+  color: #282b3e; font-size: 22px; text-decoration: none; background: none; border: 0;
+}
+body.auth main .cards p > a:not(strong a)::before,
+body.auth main .section:has(.cards) > .default-content-wrapper:last-child a::before {
+  content: "\203A"; display: inline-flex; align-items: center; justify-content: center;
+  width: 26px; height: 26px; border: 2px solid #ec6453; border-radius: 50%;
+  color: #ec6453; font-size: 20px; line-height: 1;
+}
+body.auth main .section:has(.cards) > .default-content-wrapper:last-child a { margin: 40px 0 0 36px; }
+body.auth main .section:has(.cards) > .default-content-wrapper:last-child a::before { content: "\2039"; }
+
+/* Member header: right-aligned Contact Us | Logout (orange) | FR */
+body.auth header .nav-utility .nav-inner { justify-content: flex-end; }
+body.auth header .nav-utility-left li.active { background: transparent; box-shadow: none; }
+body.auth header .nav-utility-right strong a,
+body.auth header .nav-utility-right a.button {
+  display: flex; align-items: center; height: 47px; padding: 0 16px; margin: 0;
+  background: #f6a623; color: #fff; border-radius: 0; font-weight: 400;
+}
