@@ -644,11 +644,39 @@ main .section:has(.columns h1 em) .columns-wrapper {
   padding: 0;
 }
 
-/* Two columns filling the window height under the header */
+/* Two columns, fixed height (no vh: it loops in Universal Editor) */
 main .columns:has(h1 em) > div {
   display: grid;
   grid-template-columns: 43% 1fr;
-  min-height: calc(100vh - var(--nav-height, 180px));
+  min-height: 760px;
+}
+
+/* Image column: the image covers the cell without setting its height */
+main .columns:has(h1 em) > div > div:first-child {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+main .columns:has(h1 em) > div > div:first-child p,
+main .columns:has(h1 em) > div > div:first-child picture {
+  margin: 0;
+}
+
+main .columns:has(h1 em) > div > div:first-child img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+@media (width < 900px) {
+  main .columns:has(h1 em) > div { grid-template-columns: 1fr; min-height: 0; }
+  main .columns:has(h1 em) > div > div:first-child { height: 280px; }
 }
 
 /* Image column fills its whole cell */
