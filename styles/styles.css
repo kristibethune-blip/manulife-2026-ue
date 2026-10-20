@@ -969,3 +969,164 @@ body.auth header .nav-brand img {
   filter: none;
   clip-path: none;
 }
+/* ================= Group Retirement dashboard ================= */
+body.auth main .section:has(.columns ol) { max-width: none; margin: 0; padding: 110px 46px 80px; }
+body.auth main .section:has(.columns ol) h1 { font-size: 60px; font-weight: 300; margin: 0 0 48px; color: #34384b; }
+
+/* Two columns: content | sidebar */
+body.auth main .columns:has(ol) > div { display: grid; grid-template-columns: 1fr 488px; gap: 22px; align-items: start; }
+body.auth main .columns:has(ol) h2 { font-size: 40px; font-weight: 300; margin: 0 0 32px; color: #34384b; }
+body.auth main .columns:has(ol) h2 em { font-family: Georgia, "Manulife JH Serif", serif; }
+
+/* ---------- Left column ---------- */
+body.auth main .columns:has(ol) > div > div:first-child {
+  display: grid; grid-template-columns: 1fr 1fr; column-gap: 40px; grid-auto-flow: row dense;
+}
+body.auth main .columns:has(ol) > div > div:first-child > * { grid-column: 1 / -1; margin: 0; }
+
+/* Savings panel */
+body.auth main .columns:has(ol) > div > div:first-child > p:nth-of-type(1),
+body.auth main .columns:has(ol) > div > div:first-child > p:nth-of-type(2),
+body.auth main .columns:has(ol) > div > div:first-child > ul:nth-of-type(1) {
+  background: #fff; padding-left: 18px; padding-right: 38px;
+  border-left: 1px solid #ededed; border-right: 1px solid #ededed;
+}
+body.auth main .columns:has(ol) > div > div:first-child > p:nth-of-type(1) {
+  padding-top: 20px; border-top: 1px solid #ededed; font-size: 20px; font-weight: 300; color: #5e6073;
+}
+body.auth main .columns:has(ol) > div > div:first-child > p:nth-of-type(2) {
+  padding-bottom: 28px; font-size: 30px;
+  background: linear-gradient(#00a758, #00a758) 18px calc(100% - 14px) / calc(100% - 56px) 8px no-repeat, #fff;
+  box-shadow: inset 0 -1px 0 #ededed;
+}
+body.auth main .columns:has(ol) > div > div:first-child > ul:nth-of-type(1) {
+  display: grid; grid-template-columns: 1.1fr 1.6fr 1.4fr 1.8fr 1fr; align-items: center;
+  list-style: none; margin: 0 0 56px; padding-top: 22px; padding-bottom: 22px;
+  border-bottom: 1px solid #ededed; font-size: 22px; color: #282b3e;
+}
+body.auth main .columns:has(ol) > div > div:first-child > ul:nth-of-type(1) li:nth-child(3) { font-size: 18px; font-weight: 300; }
+body.auth main .columns:has(ol) > div > div:first-child > ul:nth-of-type(1) li:nth-child(3) strong { display: block; color: #06874e; font-size: 22px; font-weight: 500; }
+body.auth main .columns:has(ol) > div > div:first-child > ul:nth-of-type(1) li:nth-child(4) { font-size: 17px; font-weight: 300; }
+
+/* Circle-arrow links (DETAILS) */
+body.auth main .columns:has(ol) ul:nth-of-type(1) a {
+  display: inline-flex; align-items: center; gap: 10px; color: #282b3e; text-decoration: none; background: none; border: 0; padding: 0; font-size: 20px;
+}
+body.auth main .columns:has(ol) ul:nth-of-type(1) a::before {
+  content: "\203A"; display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; border: 2px solid #ec6453; border-radius: 50%; color: #ec6453; font-size: 18px;
+}
+
+/* Retirement income panel: tabs */
+body.auth main .columns:has(ol) > div > div:first-child > p:nth-of-type(3) {
+  display: flex; justify-content: center; gap: 46px; padding: 22px 0 0; background: #eee; margin-top: 0;
+}
+body.auth main .columns:has(ol) > div > div:first-child > p:nth-of-type(3) a {
+  padding-bottom: 18px; color: #5e6073; font-size: 22px; font-weight: 300; text-decoration: none; background: none; border: 0;
+}
+body.auth main .columns:has(ol) > div > div:first-child > p:nth-of-type(3) a:first-child {
+  color: #282b3e; font-weight: 500; box-shadow: inset 0 -4px 0 #00a758;
+}
+
+/* Estimate heading and amount */
+body.auth main .columns:has(ol) > div > div:first-child > h3,
+body.auth main .columns:has(ol) > div > div:first-child > p:nth-of-type(4) {
+  background: #fff; padding-left: 142px; border-left: 1px solid #ededed; border-right: 1px solid #ededed;
+}
+body.auth main .columns:has(ol) > div > div:first-child > h3 { padding-top: 64px; font-size: 26px; font-weight: 500; }
+body.auth main .columns:has(ol) > div > div:first-child > p:nth-of-type(4) { padding-left: 160px; padding-bottom: 80px; font-size: 38px; }
+
+/* Bar chart */
+body.auth main .columns:has(ol) > div > div:first-child > ul:nth-of-type(2) {
+  grid-column: 1; grid-row: span 2; position: relative; list-style: none;
+  height: 640px; margin: 0; padding: 0; background: #fff; border-left: 1px solid #ededed;
+}
+body.auth main .columns:has(ol) > div > div:first-child > ul:nth-of-type(2)::before {   /* stacked bar */
+  content: ""; position: absolute; left: 245px; top: 18px; width: 318px; height: 476px;
+  background: linear-gradient(#00a758 0 27%, #fff 27% 27.5%, #282b3e 27.5% 100%);
+  box-shadow: 0 -16px 0 -14px #8e90a2;
+}
+body.auth main .columns:has(ol) > div > div:first-child > ul:nth-of-type(2) li { position: absolute; font-size: 20px; }
+body.auth main .columns:has(ol) > div > div:first-child > ul:nth-of-type(2) li:nth-child(1) { left: 115px; top: 0; }
+body.auth main .columns:has(ol) > div > div:first-child > ul:nth-of-type(2) li:nth-child(2) { left: 170px; top: 490px; font-weight: 300; color: #5e6073; }
+body.auth main .columns:has(ol) > div > div:first-child > ul:nth-of-type(2) li:nth-child(3),
+body.auth main .columns:has(ol) > div > div:first-child > ul:nth-of-type(2) li:nth-child(4) {
+  top: 540px; padding-left: 36px; font-size: 17px; font-weight: 300; color: #5e6073; line-height: 1.4;
+}
+body.auth main .columns:has(ol) > div > div:first-child > ul:nth-of-type(2) li:nth-child(3) { left: 424px; }
+body.auth main .columns:has(ol) > div > div:first-child > ul:nth-of-type(2) li:nth-child(4) { left: 624px; }
+body.auth main .columns:has(ol) > div > div:first-child > ul:nth-of-type(2) li strong { color: #282b3e; font-weight: 500; font-size: 18px; }
+body.auth main .columns:has(ol) > div > div:first-child > ul:nth-of-type(2) li:nth-child(3)::before,
+body.auth main .columns:has(ol) > div > div:first-child > ul:nth-of-type(2) li:nth-child(4)::before {
+  content: ""; position: absolute; left: 0; top: 2px; width: 22px; height: 22px;
+}
+body.auth main .columns:has(ol) > div > div:first-child > ul:nth-of-type(2) li:nth-child(3)::before { background: #00a758; }
+body.auth main .columns:has(ol) > div > div:first-child > ul:nth-of-type(2) li:nth-child(4)::before { background: #282b3e; }
+
+/* Explanation text beside the chart */
+body.auth main .columns:has(ol) > div > div:first-child > p:nth-of-type(5),
+body.auth main .columns:has(ol) > div > div:first-child > p:nth-of-type(6) {
+  grid-column: 2; background: #fff; border-right: 1px solid #ededed;
+  padding: 0 120px 18px 0; font-size: 20px; font-weight: 300; line-height: 1.45; color: #282b3e;
+}
+body.auth main .columns:has(ol) > div > div:first-child > p:nth-of-type(6) { padding-bottom: 330px; border-bottom: 1px solid #ededed; }
+body.auth main .columns:has(ol) > div > div:first-child > p strong { font-weight: 500; }
+
+/* ---------- Right column ---------- */
+body.auth main .columns:has(ol) > div > div:last-child > h2:first-child { margin-top: 0; }
+body.auth main .columns:has(ol) > div > div:last-child > ul {
+  list-style: none; margin: 0 0 48px; padding: 24px 24px 18px;
+  background: #fff; border: 1px solid #ededed;
+}
+body.auth main .columns:has(ol) > div > div:last-child > ul li { margin-bottom: 18px; }
+body.auth main .columns:has(ol) > div > div:last-child > ul a {
+  color: #06874e; font-size: 21px; font-weight: 300; text-decoration: none;
+  border-bottom: 1px solid #06874e; background: none; padding: 0;
+}
+
+/* Activity list */
+body.auth main .columns:has(ol) > div > div:last-child > ol {
+  list-style: none; margin: 0; padding: 28px 28px 8px;
+  background: #fff; border: 1px solid #ededed; border-bottom: 0;
+}
+body.auth main .columns:has(ol) > div > div:last-child > ol li {
+  position: relative; display: block; min-height: 104px; margin-bottom: 14px;
+  padding: 24px 24px 24px 72px; border: 1px solid #8e90a2;
+  font-size: 17px; font-weight: 300; color: #282b3e; line-height: 1.6; word-spacing: 2px;
+}
+body.auth main .columns:has(ol) > div > div:last-child > ol li::before {
+  content: "+"; position: absolute; left: 24px; top: 26px;
+  display: flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; border-radius: 50%; background: #ec6453; color: #fff; font-weight: 700;
+}
+
+/* Transaction history button */
+body.auth main .columns:has(ol) > div > div:last-child > p:last-child {
+  margin: 0; padding: 22px 28px 28px; background: #fff;
+  border: 1px solid #ededed; border-top: 0;
+}
+body.auth main .columns:has(ol) > div > div:last-child > p:last-child a {
+  display: block; padding: 14px; background: #ec6453; color: #fff;
+  font-size: 26px; font-weight: 600; text-align: center; text-decoration: none; border: 0; border-radius: 0;
+}
+
+/* ---------- Dashboard header: utility links + left rail ---------- */
+body.auth header .nav-utility .nav-inner { justify-content: flex-end; }
+body.auth header .nav-utility-left li.active { background: transparent; box-shadow: none; }
+
+/* Left rail menu (4th section in the header) */
+body.auth header .nav-tools {
+  position: absolute; left: 0; top: calc(47px + var(--auth-rail)); z-index: 4;
+  width: var(--auth-rail); display: block;
+}
+body.auth header .nav-tools ul { display: block; list-style: none; margin: 0; padding: 0; }
+body.auth header .nav-tools li { border-bottom: 1px solid #5e6073; }
+body.auth header .nav-tools li:first-child { background: #282b3e; }
+body.auth header .nav-tools a:any-link {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  padding: 18px 6px; color: #fff; font-size: 13px; line-height: 1.2; text-align: center; text-decoration: none;
+}
+body.auth header .nav-tools a::before {
+  content: ""; width: 24px; height: 24px; background: #fff;
+  mask: var(--icon-bars) center / contain no-repeat; /* placeholder icon */
+}
