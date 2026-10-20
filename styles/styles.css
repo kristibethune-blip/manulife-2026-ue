@@ -425,14 +425,14 @@ main .hero-container .hero {
 }
 
 /* Pull the cards section up over the hero */
-main .section.overlap {
+main .hero-container + .section {
   position: relative;
   z-index: 2;
   margin-top: -80px;   /* how far the cards cover the hero */
   padding-top: 0;
 }
 
-main .section.overlap .cards > ul {
+main .hero-container + .section .cards > ul {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 32px;
@@ -440,7 +440,7 @@ main .section.overlap .cards > ul {
   margin: 0 auto;
 }
 
-main .section.overlap .cards > ul > li {
+main .hero-container + .section .cards > ul > li {
   background: #fff;
   border: 0;
   box-shadow: 0 4px 12px rgb(0 0 0 / 12%);
@@ -449,11 +449,11 @@ main .section.overlap .cards > ul > li {
 
 /* Mobile: stack the cards and reduce the overlap */
 @media (width < 900px) {
-  main .section.overlap { margin-top: -40px; }
-  main .section.overlap .cards > ul { grid-template-columns: 1fr; }
+  main .hero-container + .section { margin-top: -40px; }
+  main .hero-container + .section .cards > ul { grid-template-columns: 1fr; }
 }
 /* ---- Overlap cards: compact, icon + text + arrow ---- */
-main .section.overlap .cards > ul > li {
+main .hero-container + .section .cards > ul > li {
   display: flex;
   align-items: center;
   gap: 24px;
@@ -463,24 +463,24 @@ main .section.overlap .cards > ul > li {
 }
 
 /* Hide the empty first cell that creates the tall top gap */
-main .section.overlap .cards .cards-card-body:empty,
-main .section.overlap .cards .cards-card-body:not(:has(*)) {
+main .hero-container + .section .cards .cards-card-body:empty,
+main .hero-container + .section .cards .cards-card-body:not(:has(*)) {
   display: none;
 }
 
-main .section.overlap .cards .cards-card-body {
+main .hero-container + .section .cards .cards-card-body {
   margin: 0;
   flex: 1;
   padding-right: 32px; /* room for the arrow */
 }
 
-main .section.overlap .cards .cards-card-body p {
+main .hero-container + .section .cards .cards-card-body p {
   margin: 0;
 }
 
 /* Title */
-main .section.overlap .cards .cards-card-body p:first-child,
-main .section.overlap .cards .cards-card-body strong {
+main .hero-container + .section .cards .cards-card-body p:first-child,
+main .hero-container + .section .cards .cards-card-body strong {
   font-size: 28px;
   line-height: 1.25;
   font-weight: 500;
@@ -488,14 +488,14 @@ main .section.overlap .cards .cards-card-body strong {
 }
 
 /* Date / subtitle */
-main .section.overlap .cards .cards-card-body p + p {
+main .hero-container + .section .cards .cards-card-body p + p {
   margin-top: 6px;
   font-size: 18px;
   color: #34384b;
 }
 
 /* Left icon */
-main .section.overlap .cards > ul > li::before {
+main .hero-container + .section .cards > ul > li::before {
   content: "";
   flex: 0 0 36px;
   height: 40px;
@@ -503,17 +503,17 @@ main .section.overlap .cards > ul > li::before {
 }
 
 /* Card 1: document icon */
-main .section.overlap .cards > ul > li:nth-child(1)::before {
+main .hero-container + .section .cards > ul > li:nth-child(1)::before {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 28' fill='none' stroke='%23282b3e' stroke-width='2'%3E%3Cpath d='M2 1h13l7 7v19H2z'/%3E%3C/svg%3E");
 }
 
 /* Card 2: tree icon */
-main .section.overlap .cards > ul > li:nth-child(2)::before {
+main .hero-container + .section .cards > ul > li:nth-child(2)::before {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28' fill='none' stroke='%23282b3e' stroke-width='2'%3E%3Cpath d='M14 27V12M14 19l-5-4M14 16l5-4'/%3E%3Cpath d='M8 21a7 7 0 1 1 12 0'/%3E%3C/svg%3E");
 }
 
 /* Right arrow */
-main .section.overlap .cards > ul > li::after {
+main .hero-container + .section .cards > ul > li::after {
   content: "";
   position: absolute;
   right: 36px;
