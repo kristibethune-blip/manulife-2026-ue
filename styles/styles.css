@@ -728,3 +728,82 @@ body.auth footer p strong { font-size: 22px; margin-right: 12px; }
   body.auth main, body.auth footer { margin-left: 0; }
   body.auth header .nav-brand { position: static; }
 }
+/* ---- Authenticated experience: fixes ---- */
+
+/* 2. Utility bar and footer: full width, no centring */
+body.auth header .nav-inner,
+body.auth header nav > div,
+body.auth footer > div,
+body.auth footer .footer > div,
+body.auth footer .default-content-wrapper {
+  max-width: none;
+  margin: 0;
+}
+body.auth header .nav-utility-left { padding-left: 0; }
+
+/* 1. Personal tab: no arrow, dark bar with a green top line */
+body.auth header .nav-utility-left li,
+body.auth header .nav-utility-left li.active {
+  background: transparent;
+}
+body.auth header .nav-utility-left li::before,
+body.auth header .nav-utility-left li::after,
+body.auth header .nav-utility-left li a::before,
+body.auth header .nav-utility-left li a::after { content: none; display: none; }
+body.auth header .nav-utility-left li a {
+  color: #fff;
+  padding: 0 19px;
+  line-height: 47px;
+  font-weight: 400;
+}
+body.auth header .nav-utility-left li.active a {
+  font-weight: 600;
+  background: #34374b;
+  box-shadow: inset 0 3px 0 var(--mfc-green);
+}
+
+/* 3. Remove the white logo row; the green tile sits over the left rail */
+body.auth header,
+body.auth header .nav-wrapper { height: 47px; min-height: 0; background: var(--auth-dark); }
+body.auth header .nav-brand {
+  position: absolute;
+  left: 0;
+  top: 47px;
+  width: var(--auth-rail);
+  height: var(--auth-rail);
+  padding: 0;
+  background: var(--mfc-green);
+  overflow: hidden;
+}
+body.auth header .nav-brand img {
+  width: auto;
+  height: 46px;
+  max-width: none;
+  object-fit: cover;
+  object-position: left center; /* shows only the three-bar mark */
+  clip-path: inset(0 calc(100% - 46px) 0 0);
+  filter: brightness(0) invert(1);
+}
+body.auth main { margin-top: 0; padding-top: 0; }
+
+/* 4. Restore the Sign in button */
+body.auth main .columns:has(h1 em) p.button-container strong a,
+body.auth main .columns:has(h1 em) p strong a.button {
+  display: inline-block;
+  min-width: 350px;
+  padding: 16px;
+  margin: 8px 0 16px;
+  background: #ec6453;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  border: 0;
+  border-radius: 0;
+}
+
+/* 5. Footer aligned to the left rail like the reference */
+body.auth footer { padding: 24px 46px 32px; }
+body.auth footer ul a,
+body.auth footer p { font-size: 18px; }
