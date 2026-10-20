@@ -950,3 +950,22 @@ body.auth footer p strong::before {
   background: #00a758;
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpolygon points='2,22 4.5,3 7,3 4.5,22'/%3E%3Cpolygon points='9,22 11.5,3 14,3 11.5,22'/%3E%3Cpolygon points='16,22 18.5,3 21,3 18.5,22'/%3E%3C/svg%3E") center / contain no-repeat;
 }
+
+/* ---- Authenticated header: real logo tile ---- */
+body.auth header .nav-brand {
+  background: none;            /* the logo image has its own green */
+  padding: 0;
+}
+body.auth header .nav-brand::before { content: none; display: none; }
+body.auth header .nav-brand a { display: block; width: 100%; height: 100%; }
+body.auth header .nav-brand a::before { content: none; display: none; }  /* site's default bars icon */
+body.auth header .nav-brand picture,
+body.auth header .nav-brand img {
+  display: block;
+  width: var(--auth-rail);
+  height: var(--auth-rail);
+  max-width: none;
+  object-fit: cover;
+  filter: none;
+  clip-path: none;
+}
