@@ -524,3 +524,31 @@ main .hero-container + .section .cards > ul > li::after {
   border-right: 3px solid #282b3e;
   transform: translateY(-50%) rotate(45deg);
 }
+
+/* ---- Overlap cards: final fixes ---- */
+main .hero-container + .section .cards > ul > li {
+  flex-direction: row;      /* icon | text | arrow side by side */
+  align-items: center;
+  padding: 28px 72px 28px 36px;
+}
+
+/* Hide the empty first cell */
+main .hero-container + .section .cards .cards-card-body:not(:has(p, picture, img)) {
+  display: none;
+}
+
+/* Remove the extra gap between title and date */
+main .hero-container + .section .cards .cards-card-body p:last-child {
+  margin: 6px 0 0;
+  padding: 0;
+}
+
+main .hero-container + .section .cards .cards-card-body {
+  padding: 0;
+}
+
+/* Make sure the icon keeps its size in the row */
+main .hero-container + .section .cards > ul > li::before {
+  width: 36px;
+  height: 40px;
+}
