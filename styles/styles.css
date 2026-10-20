@@ -679,3 +679,52 @@ main .columns:has(h1 em) > div > div:last-child {
   main .columns:has(h1 em) > div { grid-template-columns: 1fr; min-height: 0; }
   main .columns:has(h1 em) > div > div:first-child img { height: 280px; }
 }
+/* ================= Authenticated experience ================= */
+body.auth {
+  --auth-rail: 94px;
+  --auth-dark: #3d3f55;
+  --auth-darker: #282b3e;
+  --mfc-green: #00a758;
+  background: var(--auth-dark);
+}
+
+/* Top utility bar: full width, slim */
+body.auth header .nav-utility-left,
+body.auth header .nav-utility-right { background: var(--auth-dark); }
+body.auth header nav { max-width: none; padding: 0; }
+body.auth header .nav-region::before,
+body.auth header .nav-lang::after { display: none; } /* hide the globe and dropdown arrows */
+body.auth header .nav-utility-left li.active a {
+  color: #fff; font-weight: 600; box-shadow: inset 0 3px 0 var(--mfc-green); background: none;
+}
+body.auth header .nav-utility-right li + li { border-left: 1px solid #5e6073; }
+
+/* Green logo tile in the left rail */
+body.auth header .nav-brand {
+  position: absolute; left: 0; top: 47px; z-index: 5;
+  width: var(--auth-rail); height: var(--auth-rail);
+  background: var(--mfc-green);
+  display: flex; align-items: center; justify-content: center;
+}
+body.auth header .nav-brand img { width: 44px; height: auto; filter: brightness(0) invert(1); }
+
+/* Content and footer sit to the right of the rail */
+body.auth main,
+body.auth footer { margin-left: var(--auth-rail); }
+body.auth main { background: #fff; }
+
+/* Footer */
+body.auth footer { background: var(--auth-darker); color: #fff; padding: 24px 46px; }
+body.auth footer ul {
+  display: flex; gap: 48px; list-style: none; margin: 0; padding: 0 0 24px;
+  border-bottom: 1px solid #5e6073;
+}
+body.auth footer a { color: #fff; text-decoration: none; }
+body.auth footer ul a::after { content: " \2197"; } /* external-link arrow */
+body.auth footer p { margin: 24px 0 0; font-size: 16px; }
+body.auth footer p strong { font-size: 22px; margin-right: 12px; }
+
+@media (width < 900px) {
+  body.auth main, body.auth footer { margin-left: 0; }
+  body.auth header .nav-brand { position: static; }
+}
