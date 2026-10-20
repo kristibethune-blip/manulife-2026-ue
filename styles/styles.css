@@ -774,8 +774,6 @@ body.auth header .nav-brand {
   align-items: center;
   justify-content: center;
 }
-body.auth header .nav-brand img { display: none; }   /* hide the full logo image */
-body.auth header .nav-brand::before {                /* draw the white three-bar mark */
   content: "";
   width: 44px;
   height: 44px;
@@ -902,11 +900,6 @@ body.auth main .cards > ul > li:last-child p:last-child { margin-top: 110px; }
 body.auth main .section:has(.cards) > .default-content-wrapper:last-child a { margin: 48px 0 0 36px; }
 
 /* 3. Straight bars in the green tile + "Manulife" wordmark beside it */
-body.auth header .nav-brand::before {
-  width: 46px;
-  height: 46px;
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='3' y='3' width='3' height='18'/%3E%3Crect x='10.5' y='3' width='3' height='18'/%3E%3Crect x='18' y='3' width='3' height='18'/%3E%3C/svg%3E") center / contain no-repeat;
-}
 body.auth header .nav-brand::after {
   content: "Manulife";
   position: absolute;
