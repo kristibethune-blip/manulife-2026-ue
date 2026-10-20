@@ -288,3 +288,13 @@ header nav .nav-sections button.nav-drop-btn > span {
 }
 
 .nav-bar .nav-inner { min-height: 56px; }
+header nav .nav-brand img {
+  height: 28px;
+  width: auto;
+  max-width: none;
+}
+
+header nav .nav-brand picture {
+  display: flex;
+  align-items: center;
+}
