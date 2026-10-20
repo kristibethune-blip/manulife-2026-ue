@@ -563,10 +563,43 @@ main .columns:has(h1 em) h1 em { font-family: Georgia, "Manulife JH Serif", seri
 main .columns:has(h1 em) p { margin: 0 0 16px; font-size: 18px; }
 main .columns:has(h1 em) p strong { font-weight: 500; }
 
-/* Fake input boxes */
-main .columns:has(h1 em) p code {
-  display: block; max-width: 480px; padding: 16px; border: 1px solid #8e90a2;
-  background: #fff; font: inherit; color: #5e6073;
+/* Fake input boxes: "Enter your username" (2nd line) and "Enter your password" (6th line) */
+main .columns:has(h1 em) h1 ~ p:nth-of-type(2),
+main .columns:has(h1 em) h1 ~ p:nth-of-type(6) {
+  max-width: 480px;
+  padding: 16px;
+  border: 1px solid #8e90a2;
+  background: #fff;
+  color: #5e6073;
+}
+
+/* Username box gets the green focus border from your reference */
+main .columns:has(h1 em) h1 ~ p:nth-of-type(2) {
+  border: 2px solid #06874e;
+}
+
+/* Password box: light blue fill with SHOW on the right */
+main .columns:has(h1 em) h1 ~ p:nth-of-type(6) {
+  position: relative;
+  background: #e8f0fe;
+}
+main .columns:has(h1 em) h1 ~ p:nth-of-type(6)::after {
+  content: "SHOW";
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 16px;
+  border-left: 1px solid #8e90a2;
+  background: #fff;
+  color: #282b3e;
+  font-size: 15px;
+}
+
+/* Space after each box before the next line */
+main .columns:has(h1 em) h1 ~ p:nth-of-type(2),
+main .columns:has(h1 em) h1 ~ p:nth-of-type(6) {
+  margin-bottom: 16px;
 }
 
 /* Text links: green and underlined, not buttons */
@@ -583,4 +616,21 @@ main .columns:has(h1 em) strong a {
 @media (width < 900px) {
   main .columns:has(h1 em) > div { grid-template-columns: 1fr; }
   main .columns:has(h1 em) > div > div:last-child { padding: 40px 24px; }
+}
+main .columns:has(h1 em) p > a,
+main .columns:has(h1 em) p > a:any-link {
+  color: #06874e;
+  background: none;
+  border: 0;
+  padding: 0;
+  text-decoration: underline;
+}
+
+main .columns:has(h1 em) .button-container a,
+main .columns:has(h1 em) strong a {
+  min-width: 350px;
+  padding: 16px;
+  background: #ec6453;
+  color: #fff;
+  text-decoration: none;
 }
