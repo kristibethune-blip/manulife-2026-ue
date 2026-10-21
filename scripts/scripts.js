@@ -1,4 +1,5 @@
-import decorateDashboard from './dashboard.js'; {
+import decorateDashboard from './dashboard.js';
+import {
   loadHeader,
   loadFooter,
   decorateIcons,
