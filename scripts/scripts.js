@@ -135,11 +135,21 @@ async function loadEager(doc) {
   if (main) {
     decorateMain(main);
     document.body.classList.add('appear');
+    if (main.querySelector('.section.dashboard')) {
+      loadCSS(`${window.hlx.codeBasePath}/styles/dashboard.css`);
+    }
     await loadSection(main.querySelector('.section'), waitForFirstImage);
-  if (main.querySelector('.section.dashboard')) {
-    loadCSS(`${window.hlx.codeBasePath}/styles/dashboard.css`);
   }
 
+  try {
+    /* if desktop (proxy for fast connection) or fonts already loaded, load fonts.css */
+    if (window.innerWidth >= 900 || sessionStorage.getItem('fonts-loaded')) {
+      loadFonts();
+    }
+  } catch (e) {
+    // do nothing
+  }
+}
   try {
     /* if desktop (proxy for fast connection) or fonts already loaded, load fonts.css */
     if (window.innerWidth >= 900 || sessionStorage.getItem('fonts-loaded')) {
